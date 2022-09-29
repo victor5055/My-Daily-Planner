@@ -27,3 +27,24 @@ $(document).ready(function () {
             var userInput = $(this).siblings('.description').val();
             localStorage.setItem(id, userInput);
         });
+
+         // class change function
+    function timeColor() {
+        hour = time.hour();
+        $('.time-block').each(function () {
+            var targetHour = parseInt($(this).attr('id'));
+
+            if (targetHour < hour) {
+                $(this).addClass('past')
+            }
+            else if (targetHour === hour) {
+                $(this).addClass('present')
+            }
+            else if (targetHour > hour) {
+                $(this).addClass('future')
+            }
+        });
+    }
+
+    timeColor();
+})
