@@ -19,3 +19,11 @@ $(document).ready(function () {
                 }  
             });
         }
+
+        plannerActions();
+        var saveBtn = $('.saveBtn');
+        saveBtn.on('click', function () {
+            var id = $(this).parent().attr('id');
+            var userInput = $(this).siblings('.description').val();
+            localStorage.setItem(id, userInput);
+        });
